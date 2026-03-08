@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "datops-agent-sdk"
+version = "0.1.1"
+description = "Drop-in trust enforcement for AI agent frameworks — LangChain, CrewAI, OpenAI, and more"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [
+    { name = "DatOps, Inc.", email = "sdk@datops.ai" },
+]
+keywords = [
+    "ai",
+    "agents",
+    "trust",
+    "security",
+    "langchain",
+    "crewai",
+    "openai",
+    "datops",
+    "sandbox",
+    "guardrails",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Security",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "requests>=2.28.0",
+]
+
+[project.optional-dependencies]
+langchain = [
+    "langchain-core>=0.1.0",
+]
+crewai = [
+    "crewai>=0.28.0",
+]
+openai = [
+    "openai>=1.0.0",
+]
+all = [
+    "langchain-core>=0.1.0",
+    "crewai>=0.28.0",
+    "openai>=1.0.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "responses>=0.23.0",
+]
+
+[project.urls]
+Homepage = "https://www.datops.ai"
+Documentation = "https://docs.datops.ai/sdk"
+Repository = "https://github.com/scloud57185/datops-agent-sdk-python"
+Issues = "https://github.com/scloud57185/datops-agent-sdk-python/issues"
+
+[tool.setuptools.packages.find]
+include = ["datops_agent*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
